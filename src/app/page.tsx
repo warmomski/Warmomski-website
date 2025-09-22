@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import DimsumLanding from "./_components/DimsumLanding";
 
+const siteUrl = "https://warmomski.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Warmomski Dimsum Homemade SoE | Catering, Reseller, Frozen Pack",
   description:
     "Warmomski adalah brand dimsum homemade dari SoE dengan varian original, mayo, dan bolognese. Tersedia pesanan hangat, frozen pack, catering acara, dan reseller.",
@@ -14,13 +17,13 @@ export const metadata: Metadata = {
     "reseller dimsum",
   ],
   alternates: {
-    canonical: "https://warmomski.id",
+    canonical: siteUrl,
   },
   openGraph: {
     title: "Warmomski Dimsum Homemade SoE",
     description:
       "Dimsum homemade favorit keluarga SoE. Fresh kukus setiap hari, siap antar, dan tersedia paket event & reseller.",
-    url: "https://warmomski.id",
+    url: siteUrl,
     siteName: "Warmomski Dimsum",
     locale: "id_ID",
     type: "website",
