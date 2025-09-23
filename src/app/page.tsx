@@ -20,11 +20,11 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   openGraph: {
-    title: "Warmomski Dimsum Homemade SoE",
+    title: "Warmomski SoE",
     description:
       "Dimsum homemade favorit keluarga SoE. Fresh kukus setiap hari, siap antar, dan tersedia paket event & reseller.",
     url: siteUrl,
-    siteName: "Warmomski Dimsum",
+    siteName: "Warmomski",
     locale: "id_ID",
     type: "website",
     images: [
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
         url: "https://images.unsplash.com/photo-1604908177077-091e9b8c2ab1?q=80&w=1600",
         width: 1600,
         height: 900,
-        alt: "Warmomski Dimsum Homemade",
+        alt: "Warmomski",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Warmomski Dimsum Homemade SoE",
+    title: "Warmomski SoE",
     description:
       "Brand dimsum homemade dari SoE dengan menu original, mayo, dan bolognese. Pesan hangat atau frozen pack untuk keluarga dan acara.",
     images: ["https://images.unsplash.com/photo-1604908177077-091e9b8c2ab1?q=80&w=1600"],
