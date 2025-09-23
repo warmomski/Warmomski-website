@@ -21,6 +21,11 @@ type MenuItem = {
   sizes: { size: string; price: number }[];
 };
 
+type NavLink = {
+  label: string;
+  href: string;
+};
+
 const menuItems: MenuItem[] = [
   {
     name: "Dimsum Original",
@@ -103,6 +108,14 @@ const faqs = [
   },
 ];
 
+const navLinks: NavLink[] = [
+  { label: "Menu", href: "#menu" },
+  { label: "Kenapa Warmomski", href: "#brand" },
+  { label: "Cara Order", href: "#order" },
+  { label: "Review Pelanggan", href: "#testimoni" },
+  { label: "Kontak", href: "#contact" },
+];
+
 const totalPrice = (items: CartItem[]) =>
   items.reduce((sum, item) => sum + item.price * item.qty, 0);
 
@@ -113,6 +126,7 @@ export default function DimsumLanding() {
   const [showForm, setShowForm] = useState(false);
   const [fulfillment, setFulfillment] = useState<"pickup" | "delivery">("pickup");
   const [recentlyAdded, setRecentlyAdded] = useState<string | null>(null);
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const cartSectionRef = useRef<HTMLDivElement | null>(null);
 
   const addToCart = (item: CartItem) => {
@@ -193,62 +207,96 @@ export default function DimsumLanding() {
       </Script>
 
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 border-b border-amber-100 bg-white/95 backdrop-blur">
-        <div className="mx-auto max-w-5xl px-4 py-2 md:px-6 md:py-3">
-          <div className="flex flex-col items-center gap-3 md:flex-row md:items-center md:justify-between md:gap-6">
-            <div className="flex w-full items-center justify-between gap-3 md:w-auto md:justify-start md:gap-4 lg:gap-5">
+      <nav className="sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 md:px-8 md:py-4">
+          <div className="flex items-center gap-3 md:gap-6">
+            <div className="flex items-center gap-3 md:gap-4">
               <Image
                 src="/logo.svg"
                 alt="Logo Warmomski"
-                width={52}
-                height={52}
+                width={56}
+                height={56}
                 priority
                 className="h-12 w-12 rounded-full border border-amber-100 bg-amber-50 p-1 object-contain shadow-sm"
               />
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-600 md:text-sm">
-                  Dimsum Homemade SoE
+              <div className="leading-tight">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-amber-600 md:text-xs">
+                  Masakan Rumahan SoE
                 </p>
-                <h1 className="text-3xl font-bold text-amber-800 md:text-[34px]">Warmomski</h1>
+                <h1 className="text-[26px] font-bold text-amber-800 md:text-[32px]">
+                  Warmomski
+                </h1>
               </div>
-              <a
-                href="https://wa.me/6285864966005"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 items-center justify-center rounded-full bg-amber-600 px-5 text-sm font-semibold text-white shadow-lg shadow-amber-700/30 transition hover:bg-amber-700 md:hidden"
-              >
-                Pesan via WA
-              </a>
             </div>
-            <div className="flex w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 px-0 text-xs font-medium text-gray-700 sm:flex-nowrap sm:justify-center sm:gap-x-4 md:flex-1 md:text-sm">
-              <a
-                href="#menu"
-                className="whitespace-nowrap rounded-full bg-gradient-to-r from-amber-200 via-amber-100 to-amber-50 px-3 py-2 font-semibold text-amber-700 shadow-sm shadow-amber-200/50 transition hover:from-amber-100 hover:via-amber-50 hover:to-white"
-              >
-                Menu Best Seller
-              </a>
-              <a href="#brand" className="whitespace-nowrap rounded-full px-3 py-2 transition hover:bg-amber-100 hover:text-amber-700">
-                Kenapa Warmomski
-              </a>
-              <a href="#order" className="whitespace-nowrap rounded-full px-3 py-2 transition hover:bg-amber-100 hover:text-amber-700">
-                Cara Order
-              </a>
-              <a href="#testimoni" className="whitespace-nowrap rounded-full px-3 py-2 transition hover:bg-amber-100 hover:text-amber-700">
-                Review Pelanggan
-              </a>
-              <a href="#contact" className="whitespace-nowrap rounded-full px-3 py-2 transition hover:bg-amber-100 hover:text-amber-700">
-                Kontak
-              </a>
+            <div className="hidden flex-1 items-center gap-3 text-sm font-medium text-slate-700 md:flex md:justify-start">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="whitespace-nowrap rounded-full px-4 py-2 transition hover:bg-amber-100/80 hover:text-amber-700"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
             <a
               href="https://wa.me/6285864966005"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center justify-center rounded-full bg-amber-600 px-5 py-2 text-base font-semibold text-white shadow-lg shadow-amber-700/30 transition hover:bg-amber-700 md:inline-flex"
+              className="hidden items-center justify-center rounded-full bg-amber-600 px-6 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-amber-700 md:inline-flex"
             >
               Pesan via WA
             </a>
+            <div className="ml-auto flex items-center gap-2 md:hidden">
+              <a
+                href="https://wa.me/6285864966005"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-amber-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-amber-700"
+              >
+                Pesan via WA
+              </a>
+              <button
+                type="button"
+                onClick={() => setIsNavOpen((prev) => !prev)}
+                aria-expanded={isNavOpen}
+                aria-label="Toggle navigasi"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-amber-200 bg-white text-amber-700 shadow-sm transition hover:border-amber-300 hover:bg-amber-50"
+              >
+                <span className="relative h-4 w-5">
+                  <span
+                    className={`absolute inset-x-0 top-0 h-0.5 rounded-full bg-current transition ${
+                      isNavOpen ? "translate-y-1.5 rotate-45" : "translate-y-0"
+                    }`}
+                  />
+                  <span
+                    className={`absolute inset-x-0 top-1/2 h-0.5 translate-y-[-50%] rounded-full bg-current transition ${
+                      isNavOpen ? "opacity-0" : "opacity-100"
+                    }`}
+                  />
+                  <span
+                    className={`absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-current transition ${
+                      isNavOpen ? "-translate-y-1.5 -rotate-45" : "translate-y-0"
+                    }`}
+                  />
+                </span>
+              </button>
+            </div>
           </div>
+          {isNavOpen ? (
+            <div className="flex flex-col gap-2 rounded-2xl border border-amber-100 bg-white/90 px-4 py-4 text-sm font-medium text-slate-700 shadow-sm md:hidden">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsNavOpen(false)}
+                  className="rounded-full px-4 py-2 text-center transition hover:bg-amber-100/80 hover:text-amber-700"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
         </div>
       </nav>
 
