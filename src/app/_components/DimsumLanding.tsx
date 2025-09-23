@@ -194,8 +194,8 @@ export default function DimsumLanding() {
 
       {/* Navbar */}
       <nav className="sticky top-0 z-50 border-b border-amber-100 bg-white/95 backdrop-blur">
-        <div className="mx-auto max-w-5xl px-4 py-3 md:px-6">
-          <div className="flex flex-col items-center gap-4 md:flex-row md:items-center md:justify-between md:gap-6">
+        <div className="mx-auto max-w-5xl px-4 py-2 md:px-6 md:py-3">
+          <div className="flex flex-col items-center gap-3 md:flex-row md:items-center md:justify-between md:gap-6">
             <div className="flex w-full items-center justify-between gap-3 md:w-auto md:justify-start md:gap-4 lg:gap-5">
               <Image
                 src="/logo.svg"
@@ -220,7 +220,7 @@ export default function DimsumLanding() {
                 Pesan via WA
               </a>
             </div>
-            <div className="flex w-full flex-wrap items-center justify-center gap-2 rounded-2xl border border-amber-100 bg-white/80 px-3 py-2 text-sm font-medium text-gray-700 shadow-sm backdrop-blur md:flex-1 md:justify-center md:gap-4 md:px-4">
+            <div className="flex w-full flex-wrap items-center justify-center gap-1.5 px-0 text-xs font-medium text-gray-700 md:flex-1 md:justify-center md:gap-4 md:rounded-2xl md:border md:border-amber-100 md:bg-white/80 md:px-4 md:py-2 md:text-sm md:shadow-sm md:backdrop-blur">
               <a href="#menu" className="whitespace-nowrap rounded-full px-3 py-2 transition hover:bg-amber-100 hover:text-amber-700">
                 Menu Best Seller
               </a>
