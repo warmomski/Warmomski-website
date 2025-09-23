@@ -220,7 +220,7 @@ export default function DimsumLanding() {
                 Pesan via WA
               </a>
             </div>
-            <div className="flex w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 px-0 text-[11px] font-medium text-gray-700 md:flex-1 md:justify-center md:gap-x-4 md:gap-y-0 md:text-sm">
+            <div className="flex w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 px-0 text-[11px] font-medium text-gray-700 sm:flex-nowrap sm:justify-between sm:text-xs md:flex-1 md:justify-center md:gap-x-4 md:text-sm">
               <a href="#menu" className="whitespace-nowrap rounded-full px-3 py-2 transition hover:bg-amber-100 hover:text-amber-700">
                 Menu Best Seller
               </a>
