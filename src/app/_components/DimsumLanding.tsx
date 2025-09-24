@@ -61,14 +61,23 @@ const menuItems: MenuItem[] = [
     img: "/dimsum-bolo.png",
     desc: "Perpaduan saus bolognese premium dan dimsum hangat lembut.",
     seoDesc: "Dimsum bolognese Warmomski dengan saus tomat spesial untuk menu modern dan kekinian.",
-    width: 328,
-    height: 252,
+    width: 1920,
+    height: 1080,
     sizes: [
       { size: "Isi 6", price: 24000 },
       { size: "Isi 8", price: 29000 },
       { size: "Isi 10", price: 34000 },
       { size: "Party Size Isi 16", price: 52000 },
     ],
+  },
+  {
+    name: "Es Pisang Ijo",
+    img: "/es-pisang-ijo.png",
+    desc: "Pisang ijo lembut dengan saus santan dan topping sagu mutiara dingin.",
+    seoDesc: "Es Pisang Ijo segar Warmomski dengan sagu mutiara manis, pilihan minuman penutup favorit di musim panas.",
+    width: 1920,
+    height: 1080,
+    sizes: [{ size: "Per Porsi", price: 10000 }],
   },
 ];
 
@@ -190,7 +199,7 @@ export default function DimsumLanding() {
             "Warmomski Dimsum homemade di SoE dengan menu original, mayo, dan bolognese. Fresh, higienis, dan siap kirim.",
           image: "https://images.unsplash.com/photo-1604908177077-091e9b8c2ab1?q=80&w=1600",
           servesCuisine: "Dimsum",
-          priceRange: "Rp14000-Rp52000",
+          priceRange: "Rp10000-Rp52000",
           telephone: "+62 858 6496 6005",
           areaServed: "SoE and surrounding areas",
           url: "https://warmomski.id",
@@ -453,7 +462,7 @@ export default function DimsumLanding() {
           </p>
         </div>
         <div className="mt-12 grid gap-10 px-6 md:grid-cols-3 lg:max-w-6xl lg:mx-auto">
-          {menuItems.map((item) => {
+          {menuItems.map((item, index) => {
             const isBestSeller = item.name.includes("Mayonnaise");
             const isSignature = item.name.includes("Original");
             const tag = isBestSeller
@@ -463,11 +472,15 @@ export default function DimsumLanding() {
               : "Menu Baru";
             const startingPrice = formatPrice(item.sizes[0].price);
             const startingPriceValue = startingPrice.replace("Rp ", "");
+            const shouldCenterSoloRow =
+              menuItems.length % 3 === 1 && index === menuItems.length - 1;
 
             return (
               <article
                 key={item.name}
-                className="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-amber-200/70 bg-white shadow-[0_16px_40px_-24px_rgba(30,41,59,0.18)] transition-transform duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_28px_60px_-28px_rgba(30,41,59,0.24)]"
+                className={`group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-amber-200/70 bg-white shadow-[0_16px_40px_-24px_rgba(30,41,59,0.18)] transition-transform duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_28px_60px_-28px_rgba(30,41,59,0.24)]${
+                  shouldCenterSoloRow ? " md:col-start-2" : ""
+                }`}
               >
                 <div className="relative">
                   <Image
