@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Warmomski SoE | Catering, Reseller, Frozen Pack",
   description:
-    "Warmomski adalah brand dimsum homemade dari SoE dengan varian original, mayo, dan bolognese. Tersedia pesanan hangat, frozen pack, catering acara, dan reseller.",
+    "Warmomski adalah brand makanan dari SoE. Tersedia pesanan hangat, frozen pack, catering acara, dan reseller.",
   keywords: [
     "dimsum soe",
     "warmomski",
