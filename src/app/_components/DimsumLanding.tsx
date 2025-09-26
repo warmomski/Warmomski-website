@@ -586,9 +586,9 @@ export default function DimsumLanding() {
               <div className="mt-3 flex justify-center">
                 <AdSlot
                   slotId={ADSENSE_SLOT_MENU_FEATURE}
-                  format="fluid"
-                  style={{ minHeight: 280, width: "100%" }}
-                  className="w-full"
+                  format="auto"
+                  style={{ width: 300, height: 300 }}
+                  fullWidthResponsive={false}
                 />
               </div>
             </article>
@@ -777,8 +777,8 @@ export default function DimsumLanding() {
             <div className="mt-4 flex justify-center">
               <AdSlot
                 slotId={ADSENSE_SLOT_AFTER_CART}
-                style={{ minHeight: 120, width: "100%" }}
-                className="w-full"
+                style={{ width: 336, height: 280 }}
+                fullWidthResponsive={false}
               />
             </div>
           </div>
@@ -949,8 +949,8 @@ export default function DimsumLanding() {
                 <AdSlot
                   slotId={ADSENSE_SLOT_BEFORE_TESTIMONIAL}
                   format="auto"
-                  style={{ minHeight: 120, width: "100%" }}
-                  className="w-full"
+                  style={{ width: 300, height: 600 }}
+                  fullWidthResponsive={false}
                 />
               </div>
             </div>
