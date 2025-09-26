@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Script from "next/script";
 import Image from "next/image";
+import AdSlot from "./AdSlot";
 
 type CartItem = {
   name: string;
@@ -26,14 +27,12 @@ type NavLink = {
   href: string;
 };
 
-declare global {
-  interface Window {
-    adsbygoogle?: unknown[];
-  }
-}
-
 const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
-const ADSENSE_SLOT_ID = process.env.NEXT_PUBLIC_ADSENSE_SLOT_ID;
+const ADSENSE_DEFAULT_SLOT_ID = process.env.NEXT_PUBLIC_ADSENSE_SLOT_ID;
+const ADSENSE_SLOT_AFTER_HERO = process.env.NEXT_PUBLIC_ADSENSE_SLOT_AFTER_HERO;
+const ADSENSE_SLOT_MENU_FEATURE = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MENU_FEATURE;
+const ADSENSE_SLOT_AFTER_CART = process.env.NEXT_PUBLIC_ADSENSE_SLOT_AFTER_CART;
+const ADSENSE_SLOT_BEFORE_TESTIMONIAL = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BEFORE_TESTIMONIAL;
 
 const menuItems: MenuItem[] = [
   {
@@ -146,18 +145,6 @@ export default function DimsumLanding() {
   const [recentlyAdded, setRecentlyAdded] = useState<string | null>(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const cartSectionRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!ADSENSE_CLIENT_ID || !ADSENSE_SLOT_ID) {
-      return;
-    }
-
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (error) {
-      console.warn("AdSense slot failed to load", error);
-    }
-  }, []);
 
   const addToCart = (item: CartItem) => {
     setShowForm(false);
@@ -469,6 +456,19 @@ export default function DimsumLanding() {
         </div>
       </section>
 
+      {/* Ad Slot - After Hero */}
+      {ADSENSE_CLIENT_ID && (ADSENSE_SLOT_AFTER_HERO || ADSENSE_DEFAULT_SLOT_ID) ? (
+        <section className="bg-white/90 py-6">
+          <div className="mx-auto max-w-5xl px-4">
+            <AdSlot
+              slotId={ADSENSE_SLOT_AFTER_HERO || ADSENSE_DEFAULT_SLOT_ID}
+              wrapperClassName="flex justify-center"
+              style={{ minHeight: 90 }}
+            />
+          </div>
+        </section>
+      ) : null}
+
       {/* Menu */}
       <section id="menu" className="py-16 bg-gradient-to-b from-amber-100 via-amber-50 to-amber-100">
         <div className="max-w-6xl mx-auto px-6 text-center">
@@ -571,6 +571,28 @@ export default function DimsumLanding() {
               </article>
             );
           })}
+
+          {ADSENSE_CLIENT_ID && ADSENSE_SLOT_MENU_FEATURE ? (
+            <article className="flex h-full flex-col justify-center gap-3 overflow-hidden rounded-[28px] border border-amber-200/70 bg-gradient-to-br from-white via-amber-50 to-amber-100/60 p-6 text-center shadow-[0_16px_40px_-24px_rgba(30,41,59,0.18)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-amber-500">
+                Sponsored
+              </p>
+              <h4 className="text-xl font-semibold text-amber-800">
+                Rekomendasi Untukmu
+              </h4>
+              <p className="text-sm text-gray-600">
+                Iklan personal relevan akan tampil di sini untuk membantu pengunjung menemukan promo menarik.
+              </p>
+              <div className="mt-3 flex justify-center">
+                <AdSlot
+                  slotId={ADSENSE_SLOT_MENU_FEATURE}
+                  format="fluid"
+                  style={{ minHeight: 280, width: "100%" }}
+                  className="w-full"
+                />
+              </div>
+            </article>
+          ) : null}
         </div>
 
         {/* Cart */}
@@ -746,17 +768,19 @@ export default function DimsumLanding() {
         </div>
       </section>
 
-      {ADSENSE_CLIENT_ID && ADSENSE_SLOT_ID ? (
-        <section aria-label="Warmomski ads" className="bg-white py-6">
-          <div className="mx-auto flex max-w-4xl justify-center px-4">
-            <ins
-              className="adsbygoogle"
-              style={{ display: "block", minHeight: 90 }}
-              data-ad-client={ADSENSE_CLIENT_ID}
-              data-ad-slot={ADSENSE_SLOT_ID}
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            />
+      {ADSENSE_CLIENT_ID && ADSENSE_SLOT_AFTER_CART ? (
+        <section className="bg-white py-8">
+          <div className="mx-auto max-w-4xl px-4">
+            <h3 className="text-center text-xs font-semibold uppercase tracking-[0.35em] text-amber-500">
+              Sponsored
+            </h3>
+            <div className="mt-4 flex justify-center">
+              <AdSlot
+                slotId={ADSENSE_SLOT_AFTER_CART}
+                style={{ minHeight: 120, width: "100%" }}
+                className="w-full"
+              />
+            </div>
           </div>
         </section>
       ) : null}
@@ -913,6 +937,26 @@ export default function DimsumLanding() {
           </div>
         </div>
       </section>
+
+      {ADSENSE_CLIENT_ID && ADSENSE_SLOT_BEFORE_TESTIMONIAL ? (
+        <section className="bg-white py-8">
+          <div className="mx-auto max-w-5xl px-4">
+            <div className="rounded-3xl border border-amber-200/70 bg-amber-50/60 p-6 text-center shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-500">
+                sponsored highlight
+              </p>
+              <div className="mt-4 flex justify-center">
+                <AdSlot
+                  slotId={ADSENSE_SLOT_BEFORE_TESTIMONIAL}
+                  format="auto"
+                  style={{ minHeight: 120, width: "100%" }}
+                  className="w-full"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* Testimoni */}
       <section id="testimoni" className="py-16 bg-gradient-to-br from-amber-900 via-amber-700 to-amber-600 text-white">

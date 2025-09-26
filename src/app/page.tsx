@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     "dimsum frozen",
     "catering dimsum",
     "reseller dimsum",
+    "dimsum",
   ],
   alternates: {
     canonical: siteUrl,
