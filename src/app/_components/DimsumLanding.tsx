@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import Image from "next/image";
 
@@ -25,6 +25,15 @@ type NavLink = {
   label: string;
   href: string;
 };
+
+declare global {
+  interface Window {
+    adsbygoogle?: unknown[];
+  }
+}
+
+const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+const ADSENSE_SLOT_ID = process.env.NEXT_PUBLIC_ADSENSE_SLOT_ID;
 
 const menuItems: MenuItem[] = [
   {
@@ -137,6 +146,18 @@ export default function DimsumLanding() {
   const [recentlyAdded, setRecentlyAdded] = useState<string | null>(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const cartSectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!ADSENSE_CLIENT_ID || !ADSENSE_SLOT_ID) {
+      return;
+    }
+
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (error) {
+      console.warn("AdSense slot failed to load", error);
+    }
+  }, []);
 
   const addToCart = (item: CartItem) => {
     setShowForm(false);
@@ -724,6 +745,21 @@ export default function DimsumLanding() {
           )}
         </div>
       </section>
+
+      {ADSENSE_CLIENT_ID && ADSENSE_SLOT_ID ? (
+        <section aria-label="Warmomski ads" className="bg-white py-6">
+          <div className="mx-auto flex max-w-4xl justify-center px-4">
+            <ins
+              className="adsbygoogle"
+              style={{ display: "block", minHeight: 90 }}
+              data-ad-client={ADSENSE_CLIENT_ID}
+              data-ad-slot={ADSENSE_SLOT_ID}
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            />
+          </div>
+        </section>
+      ) : null}
 
       {/* Funnel CTA */}
       <section id="funnel" className="py-16 px-6">
