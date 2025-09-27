@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const filePath = path.join(process.cwd(), "public", "logo.svg");
-  const svg = await fs.readFile(filePath);
+  const svg = await fs.readFile(filePath, "utf8");
 
   return new NextResponse(svg, {
     headers: {
