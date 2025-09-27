@@ -11,9 +11,12 @@ export function GET() {
     return new NextResponse("ads.txt not configured", { status: 404 });
   }
 
-  const adsTxt = `google.com, ${publisherId}, DIRECT, f08c47fec0942fa0`;
+  const accountType = process.env.ADSENSE_ACCOUNT_TYPE || "DIRECT";
+  const certificationId = process.env.ADSENSE_CERTIFICATION_ID || "f08c47fec0942fa0";
 
-  return new NextResponse(adsTxt, {
+  const adsTxtLine = `google.com, ${publisherId}, ${accountType}, ${certificationId}`;
+
+  return new NextResponse(`${adsTxtLine}\n`, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
       "Cache-Control": "public, max-age=3600",
