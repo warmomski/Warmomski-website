@@ -52,7 +52,7 @@ export default function AdSlot({
     <div className={wrapperClassName}>
       <ins
         className={`adsbygoogle ${className ?? ""}`.trim()}
-        style={{ display: "block", ...(style ?? {}) }}
+        style={{ display: "block", width: "100%", ...(style ?? {}) }}
         data-ad-client={ADSENSE_CLIENT_ID}
         data-ad-slot={slotId}
         data-ad-format={format}

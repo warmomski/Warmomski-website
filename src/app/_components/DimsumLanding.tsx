@@ -459,11 +459,11 @@ export default function DimsumLanding() {
       {/* Ad Slot - After Hero */}
       {ADSENSE_CLIENT_ID && (ADSENSE_SLOT_AFTER_HERO || ADSENSE_DEFAULT_SLOT_ID) ? (
         <section className="bg-white/90 py-6">
-          <div className="mx-auto max-w-5xl px-4">
+          <div className="mx-auto flex w-full max-w-5xl px-4">
             <AdSlot
               slotId={ADSENSE_SLOT_AFTER_HERO || ADSENSE_DEFAULT_SLOT_ID}
-              wrapperClassName="flex justify-center"
-              style={{ minHeight: 90 }}
+              wrapperClassName="w-full"
+              style={{ minHeight: 90, width: "100%" }}
             />
           </div>
         </section>
