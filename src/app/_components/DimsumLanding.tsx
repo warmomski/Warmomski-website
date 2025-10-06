@@ -34,6 +34,10 @@ const ADSENSE_SLOT_MENU_FEATURE = process.env.NEXT_PUBLIC_ADSENSE_SLOT_MENU_FEAT
 const ADSENSE_SLOT_AFTER_CART = process.env.NEXT_PUBLIC_ADSENSE_SLOT_AFTER_CART;
 const ADSENSE_SLOT_BEFORE_TESTIMONIAL = process.env.NEXT_PUBLIC_ADSENSE_SLOT_BEFORE_TESTIMONIAL;
 
+const SECTION_CONTAINER = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-10";
+const NARROW_CONTAINER = "mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-10";
+const CONTACT_CONTAINER = "mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-10";
+
 const menuItems: MenuItem[] = [
   {
     name: "Dimsum Original",
@@ -225,7 +229,7 @@ export default function DimsumLanding() {
 
       {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 md:px-8 md:py-4">
+        <div className={`${SECTION_CONTAINER} flex flex-col gap-3 py-3 md:py-4`}>
           <div className="flex items-center gap-3 md:gap-6">
             <div className="flex items-center gap-3 md:gap-4">
               <Image
@@ -321,7 +325,7 @@ export default function DimsumLanding() {
       <section className="relative overflow-hidden bg-gradient-to-br from-amber-900 via-amber-700 to-amber-500 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_55%)]" />
         <div className="absolute -top-16 -right-20 hidden h-64 w-64 rounded-full border border-white/30 bg-white/10 blur-3xl md:block" />
-        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 px-6 py-20 md:flex-row md:items-start md:justify-between md:py-24">
+        <div className={`${SECTION_CONTAINER} relative flex flex-col items-center gap-10 py-16 md:flex-row md:items-start md:justify-between md:py-24`}>
           <div className="text-center md:w-1/2 md:text-left">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-sm font-medium tracking-wide text-amber-100 backdrop-blur">
               <Image src="/warmomski-b.svg" alt="Warmomski wordmark" width={96} height={24} className="h-5 w-auto" />
@@ -459,7 +463,7 @@ export default function DimsumLanding() {
       {/* Ad Slot - After Hero */}
       {ADSENSE_CLIENT_ID && (ADSENSE_SLOT_AFTER_HERO || ADSENSE_DEFAULT_SLOT_ID) ? (
         <section className="bg-white/90 py-6">
-          <div className="mx-auto flex w-full max-w-5xl px-4">
+          <div className={`${NARROW_CONTAINER} flex justify-center`}> 
             <AdSlot
               slotId={ADSENSE_SLOT_AFTER_HERO || ADSENSE_DEFAULT_SLOT_ID}
               wrapperClassName="w-full"
@@ -471,7 +475,7 @@ export default function DimsumLanding() {
 
       {/* Menu */}
       <section id="menu" className="py-16 bg-gradient-to-b from-amber-100 via-amber-50 to-amber-100">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className={`${SECTION_CONTAINER} text-center`}>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-500">
             Menu Favorit
           </p>
@@ -482,7 +486,7 @@ export default function DimsumLanding() {
             Tiap varian dimsum Warmomski dimasak fresh dengan saus khas rumahan. Pilih ukuran sesuai kebutuhanmu, tinggal klik untuk tambah ke keranjang.
           </p>
         </div>
-        <div className="mt-12 grid gap-10 px-6 md:grid-cols-3 lg:max-w-6xl lg:mx-auto">
+        <div className={`${SECTION_CONTAINER} mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3`}>
           {menuItems.map((item, index) => {
             const isBestSeller = item.name.includes("Mayonnaise");
             const isSignature = item.name.includes("Original");
@@ -598,7 +602,7 @@ export default function DimsumLanding() {
         {/* Cart */}
         <div
           ref={cartSectionRef}
-          className="mx-auto mt-14 max-w-3xl rounded-3xl border border-amber-200 bg-white/90 p-8 text-center shadow-xl"
+          className={`${NARROW_CONTAINER} mt-14 rounded-3xl border border-amber-200 bg-white/90 p-6 text-center shadow-xl sm:p-8`}
         >
           <h4 className="text-2xl font-bold text-amber-800">
             🛒 Keranjang Pesananmu
@@ -786,8 +790,8 @@ export default function DimsumLanding() {
       ) : null}
 
       {/* Funnel CTA */}
-      <section id="funnel" className="py-16 px-6">
-        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-amber-200 bg-gradient-to-br from-white via-amber-50 to-amber-200/40 p-8 text-center shadow-2xl md:p-12">
+      <section id="funnel" className="py-16">
+        <div className={`${NARROW_CONTAINER} relative overflow-hidden rounded-3xl border border-amber-200 bg-gradient-to-br from-white via-amber-50 to-amber-200/40 p-8 text-center shadow-2xl md:p-12`}>
           <div className="absolute -right-12 top-8 hidden h-48 w-48 opacity-10 md:block">
             <Image src="/logo.svg" alt="Warmomski monogram" fill sizes="192px" className="object-contain" />
           </div>
@@ -838,11 +842,11 @@ export default function DimsumLanding() {
 
       {/* Cara Pesan */}
       <section id="order" className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <h3 className="text-3xl font-bold text-center mb-10 text-amber-800">
+        <div className={NARROW_CONTAINER}>
+          <h3 className="mb-10 text-center text-3xl font-bold text-amber-800">
             Cara Pesan Dimsum Warmomski
           </h3>
-          <div className="grid gap-6 text-gray-700 md:grid-cols-3">
+          <div className="grid gap-6 text-gray-700 sm:grid-cols-2 xl:grid-cols-3">
             {[
               {
                 title: "Pilih Menu",
@@ -875,7 +879,7 @@ export default function DimsumLanding() {
       {/* Tentang */}
       <section className="relative py-16 bg-amber-50">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.6),_transparent_65%)]" />
-        <div className="relative max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div className={`${NARROW_CONTAINER} relative grid gap-10 items-center md:grid-cols-2`}>
           <div className="relative overflow-hidden rounded-3xl border border-amber-100 bg-white shadow-2xl">
             <Image
               src="/about-warmomski.jpeg"
@@ -940,7 +944,7 @@ export default function DimsumLanding() {
 
       {ADSENSE_CLIENT_ID && ADSENSE_SLOT_BEFORE_TESTIMONIAL ? (
         <section className="bg-white py-8">
-          <div className="mx-auto max-w-5xl px-4">
+          <div className={NARROW_CONTAINER}>
             <div className="rounded-3xl border border-amber-200/70 bg-amber-50/60 p-6 text-center shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-500">
                 sponsored highlight
@@ -960,7 +964,7 @@ export default function DimsumLanding() {
 
       {/* Testimoni */}
       <section id="testimoni" className="py-16 bg-gradient-to-br from-amber-900 via-amber-700 to-amber-600 text-white">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className={`${SECTION_CONTAINER} text-center`}>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-200">
             Testimoni
           </p>
@@ -968,7 +972,7 @@ export default function DimsumLanding() {
           <p className="mt-3 text-amber-100">
             Ratusan pelanggan SoE dan sekitarnya sudah menjadikan Warmomski pilihan utama untuk suguhan keluarga dan event.
           </p>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 quote: "Dimsumnya juicy banget, saus bolognese-nya bikin beda dari yang lain!",
@@ -1000,8 +1004,8 @@ export default function DimsumLanding() {
 
       {/* FAQ */}
       <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <h3 className="text-3xl font-bold text-center text-amber-800 mb-10">
+        <div className={NARROW_CONTAINER}>
+          <h3 className="mb-10 text-center text-3xl font-bold text-amber-800">
             Pertanyaan yang Sering Diajukan
           </h3>
           <div className="space-y-4">
@@ -1024,8 +1028,8 @@ export default function DimsumLanding() {
       </section>
 
       {/* Kontak */}
-      <section id="contact" className="py-16 px-6">
-        <div className="mx-auto max-w-4xl rounded-[36px] border border-amber-200 bg-white p-8 text-center shadow-xl shadow-amber-900/10 md:p-12">
+      <section id="contact" className="py-16">
+        <div className={`${CONTACT_CONTAINER} rounded-[36px] border border-amber-200 bg-white p-8 text-center shadow-xl shadow-amber-900/10 md:p-12`}>
           <div className="flex flex-col items-center gap-4 text-amber-800">
             <h3 className="text-3xl font-bold text-amber-800">Hubungi Kami</h3>
             <p className="text-sm text-gray-600">
@@ -1121,7 +1125,7 @@ export default function DimsumLanding() {
 
       {/* Footer */}
       <footer className="bg-amber-950 py-6 text-sm text-amber-100">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 md:flex-row">
+        <div className={`${SECTION_CONTAINER} flex flex-col items-center justify-between gap-3 md:flex-row`}>
           <p>© {new Date().getFullYear()} Warmomski. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <a
