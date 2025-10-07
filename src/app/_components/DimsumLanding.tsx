@@ -229,83 +229,85 @@ export default function DimsumLanding() {
 
       {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
-        <div className={`${SECTION_CONTAINER} flex flex-col gap-3 py-3 md:py-4`}>
-          <div className="flex items-center gap-3 md:gap-6">
-            <div className="flex items-center gap-3 md:gap-4">
-              <Image
-                src="/logo.svg"
-                alt="Logo Warmomski"
-                width={56}
-                height={56}
-                priority
-                className="h-12 w-12 rounded-full border border-amber-100 bg-amber-50 p-1 object-contain shadow-sm"
-              />
-              <div className="leading-tight">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-amber-600 md:text-xs">
-                  Masakan Rumahan SoE
-                </p>
-                <h1 className="text-[26px] font-bold text-amber-800 md:text-[32px]">
-                  Warmomski
-                </h1>
-              </div>
+        <div className={`${SECTION_CONTAINER} flex items-center justify-between gap-4 py-3 md:py-4`}>
+          <div className="flex items-center gap-3 md:gap-4">
+            <Image
+              src="/logo.svg"
+              alt="Logo Warmomski"
+              width={56}
+              height={56}
+              priority
+              className="h-12 w-12 rounded-full border border-amber-100 bg-amber-50 p-1 object-contain shadow-sm"
+            />
+            <div className="leading-tight text-left">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-amber-600 md:text-xs">
+                Masakan Rumahan SoE
+              </p>
+              <h1 className="text-[26px] font-bold text-amber-800 md:text-[32px]">
+                Warmomski
+              </h1>
             </div>
-            <div className="hidden flex-1 items-center gap-3 text-sm font-medium text-slate-700 md:flex md:justify-start">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="whitespace-nowrap rounded-full px-4 py-2 transition hover:bg-amber-100/80 hover:text-amber-700"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+          </div>
+          <div className="hidden flex-1 items-center justify-center gap-2 text-sm font-medium text-slate-700 md:flex xl:gap-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="whitespace-nowrap rounded-full px-4 py-2 transition hover:bg-amber-100/80 hover:text-amber-700"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <div className="ml-auto hidden items-center gap-3 md:flex">
             <a
               href="https://wa.me/6285864966005"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center justify-center rounded-full bg-amber-600 px-6 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-amber-700 md:inline-flex"
+              className="inline-flex items-center justify-center rounded-full bg-amber-600 px-6 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-amber-700"
             >
               Pesan via WA
             </a>
-            <div className="ml-auto flex items-center gap-2 md:hidden">
-              <a
-                href="https://wa.me/6285864966005"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-amber-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-amber-700"
-              >
-                Pesan via WA
-              </a>
-              <button
-                type="button"
-                onClick={() => setIsNavOpen((prev) => !prev)}
-                aria-expanded={isNavOpen}
-                aria-label="Toggle navigasi"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-amber-200 bg-white text-amber-700 shadow-sm transition hover:border-amber-300 hover:bg-amber-50"
-              >
-                <span className="relative h-4 w-5">
-                  <span
-                    className={`absolute inset-x-0 top-0 h-0.5 rounded-full bg-current transition ${
-                      isNavOpen ? "translate-y-1.5 rotate-45" : "translate-y-0"
-                    }`}
-                  />
-                  <span
-                    className={`absolute inset-x-0 top-1/2 h-0.5 translate-y-[-50%] rounded-full bg-current transition ${
-                      isNavOpen ? "opacity-0" : "opacity-100"
-                    }`}
-                  />
-                  <span
-                    className={`absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-current transition ${
-                      isNavOpen ? "-translate-y-1.5 -rotate-45" : "translate-y-0"
-                    }`}
-                  />
-                </span>
-              </button>
-            </div>
           </div>
-          {isNavOpen ? (
-            <div className="flex flex-col gap-2 rounded-2xl border border-amber-100 bg-white/90 px-4 py-4 text-sm font-medium text-slate-700 shadow-sm md:hidden">
+          <div className="ml-auto flex items-center gap-2 md:hidden">
+            <a
+              href="https://wa.me/6285864966005"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-amber-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-amber-700"
+            >
+              Pesan via WA
+            </a>
+            <button
+              type="button"
+              onClick={() => setIsNavOpen((prev) => !prev)}
+              aria-expanded={isNavOpen}
+              aria-label="Toggle navigasi"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-amber-200 bg-white text-amber-700 shadow-sm transition hover:border-amber-300 hover:bg-amber-50"
+            >
+              <span className="relative h-4 w-5">
+                <span
+                  className={`absolute inset-x-0 top-0 h-0.5 rounded-full bg-current transition ${
+                    isNavOpen ? "translate-y-1.5 rotate-45" : "translate-y-0"
+                  }`}
+                />
+                <span
+                  className={`absolute inset-x-0 top-1/2 h-0.5 translate-y-[-50%] rounded-full bg-current transition ${
+                    isNavOpen ? "opacity-0" : "opacity-100"
+                  }`}
+                />
+                <span
+                  className={`absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-current transition ${
+                    isNavOpen ? "-translate-y-1.5 -rotate-45" : "translate-y-0"
+                  }`}
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+        {isNavOpen ? (
+          <div className={`${SECTION_CONTAINER} md:hidden`}>
+            <div className="mt-2 flex flex-col gap-2 rounded-2xl border border-amber-100 bg-white/90 px-4 py-4 text-sm font-medium text-slate-700 shadow-sm">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -317,8 +319,8 @@ export default function DimsumLanding() {
                 </a>
               ))}
             </div>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
       </nav>
 
       {/* Hero */}
@@ -425,8 +427,8 @@ export default function DimsumLanding() {
       </section>
 
       {/* Brand Story */}
-      <section id="brand" className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="brand" className="py-16 bg-white scroll-mt-24">
+        <div className={SECTION_CONTAINER}>
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-500">
               Kenapa Warmomski
@@ -474,7 +476,7 @@ export default function DimsumLanding() {
       ) : null}
 
       {/* Menu */}
-      <section id="menu" className="py-16 bg-gradient-to-b from-amber-100 via-amber-50 to-amber-100">
+      <section id="menu" className="py-16 bg-gradient-to-b from-amber-100 via-amber-50 to-amber-100 scroll-mt-24">
         <div className={`${SECTION_CONTAINER} text-center`}>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-500">
             Menu Favorit
@@ -774,7 +776,7 @@ export default function DimsumLanding() {
 
       {ADSENSE_CLIENT_ID && ADSENSE_SLOT_AFTER_CART ? (
         <section className="bg-white py-8">
-          <div className="mx-auto max-w-4xl px-4">
+          <div className={NARROW_CONTAINER}>
             <h3 className="text-center text-xs font-semibold uppercase tracking-[0.35em] text-amber-500">
               Sponsored
             </h3>
@@ -790,7 +792,7 @@ export default function DimsumLanding() {
       ) : null}
 
       {/* Funnel CTA */}
-      <section id="funnel" className="py-16">
+      <section id="funnel" className="py-16 scroll-mt-24">
         <div className={`${NARROW_CONTAINER} relative overflow-hidden rounded-3xl border border-amber-200 bg-gradient-to-br from-white via-amber-50 to-amber-200/40 p-8 text-center shadow-2xl md:p-12`}>
           <div className="absolute -right-12 top-8 hidden h-48 w-48 opacity-10 md:block">
             <Image src="/logo.svg" alt="Warmomski monogram" fill sizes="192px" className="object-contain" />
@@ -841,7 +843,7 @@ export default function DimsumLanding() {
       </section>
 
       {/* Cara Pesan */}
-      <section id="order" className="py-16 bg-white">
+      <section id="order" className="py-16 bg-white scroll-mt-24">
         <div className={NARROW_CONTAINER}>
           <h3 className="mb-10 text-center text-3xl font-bold text-amber-800">
             Cara Pesan Dimsum Warmomski
@@ -1003,7 +1005,7 @@ export default function DimsumLanding() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white scroll-mt-24">
         <div className={NARROW_CONTAINER}>
           <h3 className="mb-10 text-center text-3xl font-bold text-amber-800">
             Pertanyaan yang Sering Diajukan
@@ -1028,9 +1030,9 @@ export default function DimsumLanding() {
       </section>
 
       {/* Kontak */}
-      <section id="contact" className="py-16">
-        <div className={`${CONTACT_CONTAINER} rounded-[36px] border border-amber-200 bg-white p-8 text-center shadow-xl shadow-amber-900/10 md:p-12`}>
-          <div className="flex flex-col items-center gap-4 text-amber-800">
+      <section id="contact" className="py-16 scroll-mt-24">
+        <div className={`${CONTACT_CONTAINER} rounded-[36px] border border-amber-200 bg-white p-8 text-center shadow-xl shadow-amber-900/10 md:p-12 md:text-left`}>
+          <div className="flex flex-col items-center gap-4 text-amber-800 md:items-start">
             <h3 className="text-3xl font-bold text-amber-800">Hubungi Kami</h3>
             <p className="text-sm text-gray-600">
               Tim Warmomski siap bantu pilih paket terbaik untuk keluarga, event kantor, maupun reseller.
@@ -1085,41 +1087,43 @@ export default function DimsumLanding() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-amber-900 text-white text-center">
-        <Image
-          src="/warmomski-b.svg"
-          alt="Warmomski"
-          width={160}
-          height={40}
-          className="mx-auto h-10 w-auto"
-        />
-        <h3 className="mt-6 text-3xl font-bold">Siap Hangatkan Harimu dengan Dimsum Warmomski?</h3>
-        <p className="mt-3 text-amber-100">
-          Pesan sekarang dan rasakan dimsum homemade favorit keluarga di SoE.
-        </p>
-        <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href="#menu"
-            className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 font-semibold text-amber-700 shadow-lg transition hover:bg-amber-100"
-          >
-            Mulai Pilih Menu
-          </a>
-          <a
-            href="https://wa.me/6285864966005"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-2xl border border-white/70 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
-          >
-            Konsultasi Menu via WA
-          </a>
-          <a
-            href="https://maps.app.goo.gl/tRg1xhxCV6DjK99U7"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-2xl border border-white/70 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
-          >
-            Lihat Lokasi Warmomski
-          </a>
+      <section className="py-16 bg-amber-900 text-white">
+        <div className={`${SECTION_CONTAINER} text-center`}>
+          <Image
+            src="/warmomski-b.svg"
+            alt="Warmomski"
+            width={160}
+            height={40}
+            className="mx-auto h-10 w-auto"
+          />
+          <h3 className="mt-6 text-3xl font-bold">Siap Hangatkan Harimu dengan Dimsum Warmomski?</h3>
+          <p className="mt-3 text-amber-100">
+            Pesan sekarang dan rasakan dimsum homemade favorit keluarga di SoE.
+          </p>
+          <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="#menu"
+              className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 font-semibold text-amber-700 shadow-lg transition hover:bg-amber-100"
+            >
+              Mulai Pilih Menu
+            </a>
+            <a
+              href="https://wa.me/6285864966005"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-2xl border border-white/70 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+            >
+              Konsultasi Menu via WA
+            </a>
+            <a
+              href="https://maps.app.goo.gl/tRg1xhxCV6DjK99U7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-2xl border border-white/70 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+            >
+              Lihat Lokasi Warmomski
+            </a>
+          </div>
         </div>
       </section>
 
