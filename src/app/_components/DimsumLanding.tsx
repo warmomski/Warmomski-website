@@ -952,12 +952,14 @@ export default function DimsumLanding() {
                 sponsored highlight
               </p>
               <div className="mt-4 flex justify-center">
-                <AdSlot
-                  slotId={ADSENSE_SLOT_BEFORE_TESTIMONIAL}
-                  format="auto"
-                  style={{ width: 300, height: 600 }}
-                  fullWidthResponsive={false}
-                />
+                <div className="w-full max-w-[320px]">
+                  <AdSlot
+                    slotId={ADSENSE_SLOT_BEFORE_TESTIMONIAL}
+                    format="auto"
+                    style={{ width: "100%", minHeight: 280 }}
+                    fullWidthResponsive
+                  />
+                </div>
               </div>
             </div>
           </div>
