@@ -1118,9 +1118,6 @@ export default function DimsumLanding() {
             >
               Lihat Lokasi Warmomski
             </a>
-            <a href="/privacy" className="text-sm text-amber-200 underline-offset-4 hover:underline">
-              Kebijakan Privasi Warmomski
-            </a>
           </div>
         </div>
       </section>
