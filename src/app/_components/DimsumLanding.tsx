@@ -334,7 +334,7 @@ export default function DimsumLanding() {
               Warmomski menghadirkan pengalaman dimsum rumahan dengan kualitas restoran, untuk setiap momen berharga.
             </p>
             <p className="mt-3 text-sm uppercase tracking-[0.25em] text-amber-200">
-              Best Seller: Dimsum Mayonnaise Creamy – klasik yang dicintai semua usia.
+              Favorit pelanggan: Dimsum Mayonnaise creamy kesukaan keluarga
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
