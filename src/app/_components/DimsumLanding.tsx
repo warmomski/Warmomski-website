@@ -327,13 +327,14 @@ export default function DimsumLanding() {
               Handmade • Higienis • Halal
             </span>
             <h2 className="mt-6 text-4xl font-bold leading-tight md:text-5xl">
-              Dimsum Homemade Hangat dengan Sentuhan Premium untuk Setiap Momen
+              Premium Homemade Dimsum
             </h2>
             <p className="mt-5 text-lg text-amber-100 md:text-xl">
-              Warmomski menghadirkan dimsum ramah keluarga dengan opsi fresh kukus atau frozen pack. Tinggal pilih varian favoritmu, kami urus sampai ke pintu rumah.
+              Dibuat dengan bahan segar, dikukus sempurna, dan siap dinikmati.
+              Warmomski menghadirkan pengalaman dimsum rumahan dengan kualitas restoran, untuk setiap momen berharga.
             </p>
             <p className="mt-3 text-sm uppercase tracking-[0.25em] text-amber-200">
-              Favorit pelanggan: Dimsum Mayonnaise creamy kesukaan keluarga
+              Best Seller: Dimsum Mayonnaise Creamy – klasik yang dicintai semua usia.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
