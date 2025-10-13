@@ -234,19 +234,12 @@ export default function DimsumLanding() {
             <Image
               src="/logo.svg"
               alt="Logo Warmomski"
-              width={56}
-              height={56}
+              width={44}
+              height={44}
               priority
-              className="h-12 w-12 rounded-full border border-amber-100 bg-amber-50 p-1 object-contain shadow-sm"
+              className="h-11 w-11 rounded-full border border-amber-100 bg-amber-50 p-1 object-contain shadow-sm"
             />
-            <div className="leading-tight text-left">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-amber-600 md:text-xs">
-                Masakan Rumahan SoE
-              </p>
-              <h1 className="text-[26px] font-bold text-amber-800 md:text-[32px]">
-                Warmomski
-              </h1>
-            </div>
+            <span className="text-xl font-semibold text-amber-800 md:text-2xl">Warmomski</span>
           </div>
           <div className="hidden flex-1 items-center justify-center gap-2 text-sm font-medium text-slate-700 md:flex xl:gap-4">
             {navLinks.map((link) => (
@@ -1125,6 +1118,9 @@ export default function DimsumLanding() {
             >
               Lihat Lokasi Warmomski
             </a>
+            <a href="/privacy" className="text-sm text-amber-200 underline-offset-4 hover:underline">
+              Kebijakan Privasi Warmomski
+            </a>
           </div>
         </div>
       </section>
@@ -1159,6 +1155,10 @@ export default function DimsumLanding() {
               className="hover:text-white"
             >
               Instagram
+            </a>
+            <span className="hidden h-1 w-1 rounded-full bg-amber-500 md:inline-block" />
+            <a href="/privacy" className="hover:text-white">
+              Kebijakan Privasi
             </a>
           </div>
         </div>
