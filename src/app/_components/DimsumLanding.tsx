@@ -950,7 +950,7 @@ export default function DimsumLanding() {
                   <AdSlot
                     slotId={ADSENSE_SLOT_BEFORE_TESTIMONIAL}
                     format="auto"
-                    style={{ width: "100%", minHeight: 280 }}
+                    style={{ width: "100%", minHeight: 120 }}
                     fullWidthResponsive
                   />
                 </div>
@@ -1048,7 +1048,7 @@ export default function DimsumLanding() {
                 href="https://maps.app.goo.gl/tRg1xhxCV6DjK99U7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow transition hover:bg-emerald-700"
+                className="mt-5 inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-600 px-4 py-2 text-sm font-semibold text-white shadow transition hover:bg-amber-700"
               >
                 Buka di Google Maps
               </a>
