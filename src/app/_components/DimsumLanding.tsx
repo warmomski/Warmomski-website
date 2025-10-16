@@ -1017,11 +1017,7 @@ export default function DimsumLanding() {
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-left font-semibold text-amber-700">
                   <span>{faq.question}</span>
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-amber-700 transition group-open:rotate-45">
-                    +git add src/app/_components/DimsumLanding.tsx
-git commit -m "Compact mobile navbar layout"
-git push
-
-
+                    +
                   </span>
                 </summary>
                 <p className="mt-3 text-sm text-gray-700">{faq.answer}</p>
