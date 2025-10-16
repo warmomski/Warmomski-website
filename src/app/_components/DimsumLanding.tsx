@@ -242,7 +242,7 @@ export default function DimsumLanding() {
               />
               <span className="text-lg font-semibold text-amber-800 md:text-xl">Warmomski</span>
             </div>
-            <div className="hidden flex-1 items-center justify-center gap-2 text-sm font-medium text-slate-700 lg:flex xl:gap-4">
+            <div className="hidden flex-1 items-center justify-center gap-2 text-sm font-medium text-slate-700 md:flex xl:gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -253,7 +253,7 @@ export default function DimsumLanding() {
                 </a>
               ))}
             </div>
-            <div className="hidden items-center gap-3 lg:flex">
+            <div className="hidden items-center gap-3 md:flex">
               <a
                 href="https://wa.me/6285864966005"
                 target="_blank"
@@ -263,7 +263,7 @@ export default function DimsumLanding() {
                 Pesan via WA
               </a>
             </div>
-            <div className="flex items-center gap-2 lg:hidden">
+            <div className="flex items-center gap-2 md:hidden">
               <a
                 href="https://wa.me/6285864966005"
                 target="_blank"
@@ -301,7 +301,7 @@ export default function DimsumLanding() {
           </div>
         </div>
         {isNavOpen ? (
-          <div className={`${SECTION_CONTAINER} lg:hidden`}>
+          <div className={`${SECTION_CONTAINER} md:hidden`}>
             <div className="mt-2 flex flex-col gap-2 rounded-2xl border border-amber-100 bg-white/95 px-4 py-4 text-sm font-medium text-slate-700 shadow-sm">
               {navLinks.map((link) => (
                 <a
