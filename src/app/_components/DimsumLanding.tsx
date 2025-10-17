@@ -228,86 +228,81 @@ export default function DimsumLanding() {
       </Script>
 
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
-        <div className={`${SECTION_CONTAINER} flex items-center justify-between gap-4 py-3 md:py-4`}>
-          <div className="flex items-center gap-3 md:gap-4">
-            <Image
-              src="/logo.svg"
-              alt="Logo Warmomski"
-              width={56}
-              height={56}
-              priority
-              className="h-12 w-12 rounded-full border border-amber-100 bg-amber-50 p-1 object-contain shadow-sm"
-            />
-            <div className="leading-tight text-left">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-amber-600 md:text-xs">
-                Masakan Rumahan SoE
-              </p>
-              <h1 className="text-[26px] font-bold text-amber-800 md:text-[32px]">
-                Warmomski
-              </h1>
+      <nav className="sticky top-0 z-50 bg-white/85 shadow-sm backdrop-blur">
+        <div className={`${SECTION_CONTAINER} py-2 md:py-3`}>
+          <div className="flex items-center justify-between gap-3 rounded-full border border-amber-100 bg-white px-3 py-2 shadow-sm md:px-4 md:py-2.5">
+            <div className="flex items-center gap-2 md:gap-3">
+              <Image
+                src="/logo.svg"
+                alt="Logo Warmomski"
+                width={40}
+                height={40}
+                priority
+                className="h-10 w-10 rounded-full border border-amber-100 bg-amber-50 p-1 object-contain shadow-sm"
+              />
+              <span className="text-lg font-semibold text-amber-800 md:text-xl">Warmomski</span>
             </div>
-          </div>
-          <div className="hidden flex-1 items-center justify-center gap-2 text-sm font-medium text-slate-700 md:flex xl:gap-4">
-            {navLinks.map((link) => (
+            <div className="hidden flex-1 items-center justify-center gap-2 text-sm font-medium text-slate-700 md:flex xl:gap-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="whitespace-nowrap rounded-full px-4 py-2 transition hover:bg-amber-100/80 hover:text-amber-700"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+            <div className="hidden items-center gap-3 md:flex">
               <a
-                key={link.href}
-                href={link.href}
-                className="whitespace-nowrap rounded-full px-4 py-2 transition hover:bg-amber-100/80 hover:text-amber-700"
+                href="https://wa.me/6285864966005"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-amber-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-amber-700"
               >
-                {link.label}
+                Pesan via WA
               </a>
-            ))}
-          </div>
-          <div className="ml-auto hidden items-center gap-3 md:flex">
-            <a
-              href="https://wa.me/6285864966005"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-amber-600 px-6 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-amber-700"
-            >
-              Pesan via WA
-            </a>
-          </div>
-          <div className="ml-auto flex items-center gap-2 md:hidden">
-            <a
-              href="https://wa.me/6285864966005"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-amber-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-amber-700"
-            >
-              Pesan via WA
-            </a>
-            <button
-              type="button"
-              onClick={() => setIsNavOpen((prev) => !prev)}
-              aria-expanded={isNavOpen}
-              aria-label="Toggle navigasi"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-amber-200 bg-white text-amber-700 shadow-sm transition hover:border-amber-300 hover:bg-amber-50"
-            >
-              <span className="relative h-4 w-5">
-                <span
-                  className={`absolute inset-x-0 top-0 h-0.5 rounded-full bg-current transition ${
-                    isNavOpen ? "translate-y-1.5 rotate-45" : "translate-y-0"
-                  }`}
-                />
-                <span
-                  className={`absolute inset-x-0 top-1/2 h-0.5 translate-y-[-50%] rounded-full bg-current transition ${
-                    isNavOpen ? "opacity-0" : "opacity-100"
-                  }`}
-                />
-                <span
-                  className={`absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-current transition ${
-                    isNavOpen ? "-translate-y-1.5 -rotate-45" : "translate-y-0"
-                  }`}
-                />
-              </span>
-            </button>
+            </div>
+            <div className="flex items-center gap-2 md:hidden">
+              <a
+                href="https://wa.me/6285864966005"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-amber-500 px-3 py-1.5 text-xs font-semibold text-amber-700 transition hover:bg-amber-50"
+              >
+                WA
+              </a>
+              <button
+                type="button"
+                onClick={() => setIsNavOpen((prev) => !prev)}
+                aria-expanded={isNavOpen}
+                aria-label="Toggle navigasi"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-amber-200 bg-white text-amber-700 shadow-sm transition hover:border-amber-300 hover:bg-amber-50"
+              >
+                <span className="relative h-4 w-5">
+                  <span
+                    className={`absolute inset-x-0 top-0 h-0.5 rounded-full bg-current transition ${
+                      isNavOpen ? "translate-y-1.5 rotate-45" : "translate-y-0"
+                    }`}
+                  />
+                  <span
+                    className={`absolute inset-x-0 top-1/2 h-0.5 translate-y-[-50%] rounded-full bg-current transition ${
+                      isNavOpen ? "opacity-0" : "opacity-100"
+                    }`}
+                  />
+                  <span
+                    className={`absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-current transition ${
+                      isNavOpen ? "-translate-y-1.5 -rotate-45" : "translate-y-0"
+                    }`}
+                  />
+                </span>
+              </button>
+            </div>
           </div>
         </div>
         {isNavOpen ? (
           <div className={`${SECTION_CONTAINER} md:hidden`}>
-            <div className="mt-2 flex flex-col gap-2 rounded-2xl border border-amber-100 bg-white/90 px-4 py-4 text-sm font-medium text-slate-700 shadow-sm">
+            <div className="mt-2 flex flex-col gap-2 rounded-2xl border border-amber-100 bg-white/95 px-4 py-4 text-sm font-medium text-slate-700 shadow-sm">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -334,10 +329,11 @@ export default function DimsumLanding() {
               Handmade • Higienis • Halal
             </span>
             <h2 className="mt-6 text-4xl font-bold leading-tight md:text-5xl">
-              Dimsum Homemade Hangat dengan Sentuhan Premium untuk Setiap Momen
+              Premium Homemade Dimsum
             </h2>
             <p className="mt-5 text-lg text-amber-100 md:text-xl">
-              Warmomski menghadirkan dimsum ramah keluarga dengan opsi fresh kukus atau frozen pack. Tinggal pilih varian favoritmu, kami urus sampai ke pintu rumah.
+              Dibuat dengan bahan segar, dikukus sempurna, dan siap dinikmati.
+              Warmomski menghadirkan pengalaman dimsum rumahan dengan kualitas restoran, untuk setiap momen berharga.
             </p>
             <p className="mt-3 text-sm uppercase tracking-[0.25em] text-amber-200">
               Favorit pelanggan: Dimsum Mayonnaise creamy kesukaan keluarga
@@ -464,8 +460,8 @@ export default function DimsumLanding() {
 
       {/* Ad Slot - After Hero */}
       {ADSENSE_CLIENT_ID && (ADSENSE_SLOT_AFTER_HERO || ADSENSE_DEFAULT_SLOT_ID) ? (
-        <section className="bg-white/90 py-6">
-          <div className={`${NARROW_CONTAINER} flex justify-center`}> 
+        <section className="hidden bg-white/90 py-6 lg:block">
+          <div className={`${NARROW_CONTAINER} flex justify-center`}>
             <AdSlot
               slotId={ADSENSE_SLOT_AFTER_HERO || ADSENSE_DEFAULT_SLOT_ID}
               wrapperClassName="w-full"
@@ -956,7 +952,7 @@ export default function DimsumLanding() {
                   <AdSlot
                     slotId={ADSENSE_SLOT_BEFORE_TESTIMONIAL}
                     format="auto"
-                    style={{ width: "100%", minHeight: 280 }}
+                    style={{ width: "100%", minHeight: 120 }}
                     fullWidthResponsive
                   />
                 </div>
@@ -1054,7 +1050,7 @@ export default function DimsumLanding() {
                 href="https://maps.app.goo.gl/tRg1xhxCV6DjK99U7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow transition hover:bg-emerald-700"
+                className="mt-5 inline-flex items-center justify-center gap-2 rounded-2xl bg-amber-600 px-4 py-2 text-sm font-semibold text-white shadow transition hover:bg-amber-700"
               >
                 Buka di Google Maps
               </a>
@@ -1159,6 +1155,10 @@ export default function DimsumLanding() {
               className="hover:text-white"
             >
               Instagram
+            </a>
+            <span className="hidden h-1 w-1 rounded-full bg-amber-500 md:inline-block" />
+            <a href="/privacy" className="hover:text-white">
+              Kebijakan Privasi
             </a>
           </div>
         </div>
