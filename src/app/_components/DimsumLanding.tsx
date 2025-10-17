@@ -579,7 +579,7 @@ export default function DimsumLanding() {
           })}
 
           {ADSENSE_CLIENT_ID && ADSENSE_SLOT_MENU_FEATURE ? (
-            <article className="flex h-full flex-col justify-center gap-3 overflow-hidden rounded-[28px] border border-amber-200/70 bg-gradient-to-br from-white via-amber-50 to-amber-100/60 p-6 text-center shadow-[0_16px_40px_-24px_rgba(30,41,59,0.18)]">
+            <article className="hidden h-full flex-col justify-center gap-3 overflow-hidden rounded-[28px] border border-amber-200/70 bg-gradient-to-br from-white via-amber-50 to-amber-100/60 p-6 text-center shadow-[0_16px_40px_-24px_rgba(30,41,59,0.18)] lg:flex">
               <p className="text-xs font-semibold uppercase tracking-[0.32em] text-amber-500">
                 Sponsored
               </p>
@@ -774,8 +774,8 @@ export default function DimsumLanding() {
         </div>
       </section>
 
-      {ADSENSE_CLIENT_ID && ADSENSE_SLOT_AFTER_CART ? (
-        <section className="bg-white py-8">
+      {ADSENSE_CLIENT_ID && ADSENSE_SLOT_AFTER_CART && cart.length > 0 ? (
+        <section className="hidden bg-white py-8 lg:block">
           <div className={NARROW_CONTAINER}>
             <h3 className="text-center text-xs font-semibold uppercase tracking-[0.35em] text-amber-500">
               Sponsored
@@ -945,7 +945,7 @@ export default function DimsumLanding() {
       </section>
 
       {ADSENSE_CLIENT_ID && ADSENSE_SLOT_BEFORE_TESTIMONIAL ? (
-        <section className="bg-white py-8">
+        <section className="hidden bg-white py-8 lg:block">
           <div className={NARROW_CONTAINER}>
             <div className="rounded-3xl border border-amber-200/70 bg-amber-50/60 p-6 text-center shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-500">
