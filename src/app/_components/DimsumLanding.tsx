@@ -281,19 +281,16 @@ export default function DimsumLanding() {
               >
                 <span className="relative h-4 w-5">
                   <span
-                    className={`absolute inset-x-0 top-0 h-0.5 rounded-full bg-current transition ${
-                      isNavOpen ? "translate-y-1.5 rotate-45" : "translate-y-0"
-                    }`}
+                    className={`absolute inset-x-0 top-0 h-0.5 rounded-full bg-current transition ${isNavOpen ? "translate-y-1.5 rotate-45" : "translate-y-0"
+                      }`}
                   />
                   <span
-                    className={`absolute inset-x-0 top-1/2 h-0.5 translate-y-[-50%] rounded-full bg-current transition ${
-                      isNavOpen ? "opacity-0" : "opacity-100"
-                    }`}
+                    className={`absolute inset-x-0 top-1/2 h-0.5 translate-y-[-50%] rounded-full bg-current transition ${isNavOpen ? "opacity-0" : "opacity-100"
+                      }`}
                   />
                   <span
-                    className={`absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-current transition ${
-                      isNavOpen ? "-translate-y-1.5 -rotate-45" : "translate-y-0"
-                    }`}
+                    className={`absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-current transition ${isNavOpen ? "-translate-y-1.5 -rotate-45" : "translate-y-0"
+                      }`}
                   />
                 </span>
               </button>
@@ -491,8 +488,8 @@ export default function DimsumLanding() {
             const tag = isBestSeller
               ? "Best Seller"
               : isSignature
-              ? "Signature"
-              : "Menu Baru";
+                ? "Signature"
+                : "Menu Baru";
             const startingPrice = formatPrice(item.sizes[0].price);
             const startingPriceValue = startingPrice.replace("Rp ", "");
             const shouldCenterSoloRow =
@@ -501,9 +498,8 @@ export default function DimsumLanding() {
             return (
               <article
                 key={item.name}
-                className={`group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-amber-200/70 bg-white shadow-[0_16px_40px_-24px_rgba(30,41,59,0.18)] transition-transform duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_28px_60px_-28px_rgba(30,41,59,0.24)]${
-                  shouldCenterSoloRow ? " md:col-start-2" : ""
-                }`}
+                className={`group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-amber-200/70 bg-white shadow-[0_16px_40px_-24px_rgba(30,41,59,0.18)] transition-transform duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_28px_60px_-28px_rgba(30,41,59,0.24)]${shouldCenterSoloRow ? " md:col-start-2" : ""
+                  }`}
               >
                 <div className="relative">
                   <Image
@@ -555,11 +551,10 @@ export default function DimsumLanding() {
                               qty: 1,
                             })
                           }
-                          className={`inline-flex items-center justify-center rounded-xl px-4 py-2 text-[11px] font-semibold uppercase tracking-wide shadow transition ${
-                            recentlyAdded === `${item.name}-${size.size}`
-                              ? "bg-green-600 text-white"
-                              : "bg-amber-600 text-white hover:bg-amber-700"
-                          }`}
+                          className={`inline-flex items-center justify-center rounded-xl px-4 py-2 text-[11px] font-semibold uppercase tracking-wide shadow transition ${recentlyAdded === `${item.name}-${size.size}`
+                            ? "bg-green-600 text-white"
+                            : "bg-amber-600 text-white hover:bg-amber-700"
+                            }`}
                         >
                           {recentlyAdded === `${item.name}-${size.size}` ? "✔ Ditambahkan" : `Tambah ${size.size}`}
                         </button>
@@ -692,8 +687,8 @@ export default function DimsumLanding() {
                           )}`
                       )
                       .join("\n")}\n\n${subtotalMessage}\n${shippingLine}Total: ${formatPrice(
-                      totalWithShipping
-                    )}\nMetode Pengiriman: ${fulfillmentLabel}\n\nNama: ${name}\nAlamat: ${address}\nNo HP: ${phone}\nMetode Pembayaran: ${payment}`;
+                        totalWithShipping
+                      )}\nMetode Pengiriman: ${fulfillmentLabel}\n\nNama: ${name}\nAlamat: ${address}\nNo HP: ${phone}\nMetode Pembayaran: ${payment}`;
 
                     const waUrl = `https://wa.me/6285864966005?text=${encodeURIComponent(
                       pesan
